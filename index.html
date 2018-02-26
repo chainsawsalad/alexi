@@ -2,8 +2,14 @@
 <head>
   <title>Alexi</title>
   <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     h1 {
       text-align: center;
+      font-size: 10vmax;
     }
   </style>
   <script>
@@ -44,12 +50,13 @@
   </script>
 </head>
 <body>
-  <h1>Alexi <a id="nickname"></a> Drosos</h1>
+  <h1>Alexi "<a id="nickname"></a>" Drosos</h1>
   <script>
     var nicknameElement = document.getElementById('nickname');
     var nickname = nicknames[~~(Math.random() * nicknames.length)];
     nicknameElement.innerHTML = nickname[0];
     nicknameElement.href = nickname[1];
+    document.head.title = 'Alexi "' + nickname[0] + '" Drosos';
   </script>
 </body>
 </html>
