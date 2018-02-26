@@ -1,0 +1,55 @@
+<html>
+<head>
+  <title>Alexi</title>
+  <style>
+    h1 {
+      text-align: center;
+    }
+  </style>
+  <script>
+    var nicknames = [
+      ['Alex', ''],
+      ['Baby Lexi', ''],
+      ['B’Alexi', ''],
+      ['Big Man', ''],
+      ['Cheetah', ''],
+      ['Draco', ''],
+      ['Drago', ''],
+      ['Dragon', ''],
+      ['Drogon', ''],
+      ['Drachma', ''],
+      ['Dracula', ''],
+      ['Fender', ''],
+      ['Fester', ''],
+      ['Feta', ''],
+      ['Futa', ''],
+      ['Fruta', ''],
+      ['Gender (Rolls)', ''],
+      ['Gretchen', ''],
+      ['Helios', ''],
+      ['Honey Stick', ''],
+      ['Horsegut', ''],
+      ['Lame Lexi', ''],
+      ['Lexu', ''],
+      ['Luxor', ''],
+      ['Nutrius', ''],
+      ['Obessimo', ''],
+      ['Pig Man', ''],
+      ['Ratchet', ''],
+      ['Satchmo', ''],
+      ['Street Nacho', ''],
+      ['White Mountain', ''],
+      ['Zeus', ''],
+    ];
+  </script>
+</head>
+<body>
+  <h1>Alexi <a id="nickname"></a> Drosos</h1>
+  <script>
+    var nicknameElement = document.getElementById('nickname');
+    var nickname = nicknames[~~(Math.random() * nicknames.length)];
+    nicknameElement.innerHTML = nickname[0];
+    nicknameElement.href = nickname[1];
+  </script>
+</body>
+</html>
