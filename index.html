@@ -16,6 +16,7 @@
     var nicknames = [
       ['Alex', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Alex_Gino_on_September_15%2C_2016_at_International_Literature_Festival_Berlin.jpg/1200px-Alex_Gino_on_September_15%2C_2016_at_International_Literature_Festival_Berlin.jpg'],
       ['Baby Lexi', 'http://content.forums.previously.tv/monthly_2017_10/IMG_0638.JPG.11d2f71a0572df11a646f6054f1fb5b8.JPG'],
+      ['Bacchus', 'https://4.bp.blogspot.com/-VPlZ9VY33aE/TuOf220LnMI/AAAAAAAAC3E/w9Li2bOSqqY/s1600/fat+bacchus.JPG'],
       ['B\'Alexi', 'http://www.dogster.com/wp-content/uploads/2015/05/monkie-grass.jpg'],
       ['Big Man', 'http://assets.nydailynews.com/polopoly_fs/1.103819.1313921044!/img/httpImage/image.jpg_gen/derivatives/gallery_1200/gthmb-clarence-clemons-gal-jpg.jpg'],
       ['Cheetah', 'http://cdn.natgeotv.com.au/factsheets/thumbnails/cheetah-extinction-coverpic.jpg?v=28&azure=false&scale=both&width=1024&height=560&mode=crop'],
@@ -26,11 +27,13 @@
       ['Drogon', 'https://img.cinemablend.com/filter:scale/quill/9/b/7/d/2/9/9b7d295086cccf9803b46a563b62078a937002f7.jpg?mw=600'],
       ['Drachma', 'https://www.leftovercurrency.com/wp-content/uploads/2016/11/10000-greek-drachmas-banknote-georgios-papanikolaou-obverse-1.jpg'],
       ['Dracula', 'https://nerdist.com/wp-content/uploads/2017/05/nosferatu-1-615x349.jpg'],
+      ['Dragula', 'https://pbs.twimg.com/media/DTue85DX4AEBe4b.jpg:large'],
       ['Fender', 'http://www.fmicassets.com/Damroot/Med/10001/1507002806_gtr_frt_001_rr.png'],
       ['Fester', 'https://static.comicvine.com/uploads/square_medium/5/58127/1850347-fester.jpg'],
       ['Feta', 'https://www.marchespublics-mtl.com/wp-content/uploads/MPM_Fromages_Feta.jpg'],
-      ['Futa', 'http://i0.kym-cdn.com/photos/images/original/000/514/880/8cb.jpg'],
       ['Fruta', 'https://www.pontemasfuerte.com/bePMF/wp-content/uploads/2018/01/frutas-piel.jpg'],
+      ['Futa', 'http://i0.kym-cdn.com/photos/images/original/000/514/880/8cb.jpg'],
+      ['Futé', 'https://allhailtheblackmarket.com/wp-content/uploads/2017/03/070-james-mason-theredlist.jpg'],
       ['Gender (Rolls)', 'http://horrorkitschbitch.com/wp-content/uploads/2015/01/HorrorKitschBitch_PinkFlamingos_Divine03B.jpg'],
       ['Gretchen', 'http://www.farofaculturalribeirao.com.br/ckfinder/userfiles/images/ds.jpg'],
       ['Helios', 'http://www.livius.org/a/turkey/troy/troy_helios_berlin.JPG'],
@@ -54,7 +57,20 @@
   <h1>Alexi "<a id="nickname"></a>" Drosos</h1>
   <script>
     var nicknameElement = document.getElementById('nickname');
-    var nickname = nicknames[~~(Math.random() * nicknames.length)];
+    var linkName = (new URL(document.location)).searchParams.get('n');
+    var nickname = null;
+    if (linkName !== null) {
+      nicknames.some(function (data) {
+        if (data[0] === linkName) {
+          nickname = data;
+          return true;
+        }
+        return false;
+      });
+    } 
+    if (nickname === null) {
+      nickname = nicknames[~~(Math.random() * nicknames.length)];
+    }
     nicknameElement.innerHTML = nickname[0];
     nicknameElement.href = nickname[1];
     document.title = 'Alexi "' + nickname[0] + '" Drosos';
