@@ -60,7 +60,9 @@
     var linkName = null;
     try {
       linkName = (new URL(document.location)).searchParams.get('n');
-    } catch () {}
+    } catch (error) {
+      console.error(error);
+    }
     var nickname = null;
     if (linkName !== null) {
       nicknames.some(function (data) {
