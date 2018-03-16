@@ -57,7 +57,10 @@
   <h1>Alexi "<a id="nickname"></a>" Drosos</h1>
   <script>
     var nicknameElement = document.getElementById('nickname');
-    var linkName = (new URL(document.location)).searchParams.get('n');
+    var linkName = null;
+    try {
+      linkName = (new URL(document.location)).searchParams.get('n');
+    } catch () {}
     var nickname = null;
     if (linkName !== null) {
       nicknames.some(function (data) {
